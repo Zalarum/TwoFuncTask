@@ -60,7 +60,7 @@ void Dichotomy(ofstream& file_out, double& a0, double& b0, double& g1, double& g
 		t1 = c + epsilon;
 		t2 = c - epsilon;
 
-		file_out << i << ";" << a << ";" << b << ";" << (b - a) / 2 << ";" << t2 << ";" << t1 << ";" << Func(t2, a0, b0, g1, g2) << ";" << Func(t1, a0, b0, g1, g2) << endl;
+		file_out << i << "; " << a << "; " << b << "; " << (b - a) / 2 << "; " << t2 << "; " << t1 << "; " << Func(t2, a0, b0, g1, g2) << "; " << Func(t1, a0, b0, g1, g2) << endl;
 
 		if (Func(t1, a0, b0, g1, g2) > Func(t2, a0, b0, g1, g2)) b = c;
 		else a = c;
@@ -81,7 +81,7 @@ void GoldenRatio(ofstream& file_out, double& a0, double& b0, double& g1, double&
 	fu1 = Func(g, a0, b0, g1, g2);
 	fu2 = Func(h, a0, b0, g1, g2);
 
-	file_out << "n" << ";" << "a" << "; " << "b" << "; " << "(b - a) / 2" << "; " << "c" << "; " << "d" << "; " << "F(c)" << "; " << "F(d)" << endl;
+	file_out << "n" << "; " << "a" << "; " << "b" << "; " << "(b - a) / 2" << "; " << "c" << "; " << "d" << "; " << "F(c)" << "; " << "F(d)" << endl;
 
 	while (b - a > epsilon)
 	{
@@ -128,13 +128,13 @@ int main()
 	a = dist5(rd);
 	b = dist5(rd);
 
-	file_out << "Ìåòîä äèõîòîìèè äëÿ ïåðâîé ôóíêöèè" << endl;
+	file_out << "ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¸Ñ…Ð¾Ñ‚Ð¾Ð¼Ð¸Ð¸ Ð´Ð»Ñ Ð¿ÐµÑ€Ð²Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸" << endl;
 	Dichotomy(file_out, a, b, g1, g2, MainSquareFunc);
-	file_out << "Ìåòîä çîëîòîãî ñå÷åíèÿ äëÿ ïåðâîé ôóíêöèè" << endl;
+	file_out << "ÐœÐµÑ‚Ð¾Ð´ Ð·Ð¾Ð»Ð¾Ñ‚Ð¾Ð³Ð¾ ÑÐµÑ‡ÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ð¿ÐµÑ€Ð²Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸" << endl;
 	GoldenRatio(file_out, a, b, g1, g2, MainSquareFunc);
-	file_out << "Ìåòîä äèõîòîìèè äëÿ âòîðîé ôóíêöèè" << endl;
+	file_out << "ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¸Ñ…Ð¾Ñ‚Ð¾Ð¼Ð¸Ð¸ Ð´Ð»Ñ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸" << endl;
 	Dichotomy(file_out, a, b, g1, g2, MainModulFunc);
-	file_out << "Ìåòîä çîëîòîãî ñå÷åíèÿ äëÿ âòîðîé ôóíêöèè" << endl;
+	file_out << "ÐœÐµÑ‚Ð¾Ð´ Ð·Ð¾Ð»Ð¾Ñ‚Ð¾Ð³Ð¾ ÑÐµÑ‡ÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸" << endl;
 	GoldenRatio(file_out, a, b, g1, g2, MainModulFunc);
 
 	file_out.close();
