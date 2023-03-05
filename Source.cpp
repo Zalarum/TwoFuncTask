@@ -51,7 +51,7 @@ void Dichotomy(ofstream& file_out, double& a0, double& b0, double& g1, double& g
 	double epsilon = 1e-6, a = -10, b = 10, c, t1, t2;
 	int i = 1;
 
-	file_out << "n" << ";" << "a" << "; " << "b" << "; " << "(b - a) / 2" << "; " << "c" << "; " << "d" << "; " << "F(c)" << "; " << "F(d)" << endl;
+	file_out << "n" << ";" << "a" << ";" << "b" << ";" << "(b - a) / 2" << ";" << "c" << ";" << "d" << ";" << "F(c)" << ";" << "F(d)" << endl;
 
 	while (b - a > epsilon)
 	{
@@ -69,6 +69,8 @@ void Dichotomy(ofstream& file_out, double& a0, double& b0, double& g1, double& g
 	}
 
 	file_out << endl;
+	file_out << "Минимум = " << (a + b) / 2 << endl;
+	file_out << endl;
 }
 
 void GoldenRatio(ofstream& file_out, double& a0, double& b0, double& g1, double& g2, double(*Func)(double&, double&, double&, double&, double&))
@@ -81,11 +83,11 @@ void GoldenRatio(ofstream& file_out, double& a0, double& b0, double& g1, double&
 	fu1 = Func(g, a0, b0, g1, g2);
 	fu2 = Func(h, a0, b0, g1, g2);
 
-	file_out << "n" << "; " << "a" << "; " << "b" << "; " << "(b - a) / 2" << "; " << "c" << "; " << "d" << "; " << "F(c)" << "; " << "F(d)" << endl;
+	file_out << "n" << ";" << "a" << ";" << "b" << ";" << "(b - a) / 2" << ";" << "c" << ";" << "d" << ";" << "F(c)" << ";" << "F(d)" << endl;
 
 	while (b - a > epsilon)
 	{
-		file_out << i << ";" << a << ";" << b << ";" << (b - a) / 2 << ";" << h << ";" << g << ";" << Func(h, a0, b0, g1, g2) << ";" << Func(g, a0, b0, g1, g2) << endl;
+		file_out << i << "; " << a << "; " << b << "; " << (b - a) / 2 << "; " << h << "; " << g << "; " << Func(h, a0, b0, g1, g2) << "; " << Func(g, a0, b0, g1, g2) << endl;
 
 		if (fu1 < fu2)
 		{
@@ -108,7 +110,8 @@ void GoldenRatio(ofstream& file_out, double& a0, double& b0, double& g1, double&
 	}
 
 	file_out << endl;
-
+	file_out << "Минимум = " << (a + b) / 2 << endl;
+	file_out << endl;
 }
 
 int main()
